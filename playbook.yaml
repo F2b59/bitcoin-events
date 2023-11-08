@@ -1,0 +1,26 @@
+---
+  - name: Updates + setup
+    hosts: all
+    gather_facts: yes
+    become: yes
+    roles:
+      #- test_connection
+      - init
+      - docker
+    tags: always
+
+  - name: Tileserver-gl
+    hosts: tile_servers
+    become: yes
+    become_user: docker
+    roles:
+      - tileserver-gl
+    tags: tgl
+
+  - name: Reverse proxy & Web server
+    hosts: web_servers
+    become: yes
+    become_user: docker
+    roles:
+      - swag
+    tags: www

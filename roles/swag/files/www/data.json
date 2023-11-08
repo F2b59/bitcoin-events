@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Baltic Honey Badger",
+      "url": "https://baltichoneybadger.com/",
+      "description": "The most OG Bitcoin conference in the world",
+      "organizer": "Hodl Hodl",
+      "address": "Fantadroms, Riga, Latvia",
+      "dates": ["2023-08-31", "2023-09-04"],
+      "lat": 56.976250,
+      "lng": 24.165820
+    },
+    {
+        "name": "Surfin' Bitcoin",
+        "url": "https://surfinbitcoin.com/",
+        "description": "",
+        "organizer": "StackinSat",
+        "address": "Casino Barrière, Biarritz, France",
+        "dates": ["2023-08-23", "2023-08-25"],
+        "lat": 43.483650,
+        "lng": -1.559580
+    },
+    {
+        "name": "BTC Prague",
+        "url": "https://www.btcprague.com/",
+        "description": "The biggest, most influential bitcoin event in Europe ever!",
+        "organizer": "",
+        "address": "Prague, Czech Republic",
+        "dates": ["2024-06-14", "2024-06-16"],
+        "lat": 50.129480,
+        "lng": 14.515710
+    }
+]

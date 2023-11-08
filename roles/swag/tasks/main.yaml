@@ -1,0 +1,43 @@
+- name: Start linuxserver/swag container  # when modifying this, also modify the corresponding handler
+  community.docker.docker_container:
+    name: swag
+    image: linuxserver/swag
+    pull: yes  # always pull the latest image
+    state: started
+    restart_policy: always
+    volumes:
+      - "{{ homedir_path }}/swag_config:/config:rw"
+    networks:
+      - name: nginx-net
+    published_ports:
+      - 80:80
+      - 443:443
+    capabilities:  # equivalent of --cap-add
+      - NET_ADMIN
+    env:
+      PUID: "{{ docker_user.uid }}"
+      PGID: "{{ docker_user.group }}"
+      TZ: "{{ timezone }}"
+      VALIDATION: http
+      CERTPROVIDER: letsencrypt  # default
+      URL: "{{ domain_name }}"
+      SUBDOMAINS: "{{ subdomains }}"
+      ONLY_SUBDOMAINS: "{{ only_subdomains }}"
+      #EMAIL:  # optional
+    comparisons:
+     '*': strict
+
+- name: Wait for the container to start
+  pause:
+    seconds: 5
+
+- name: Copy tileserver-gl reverse proxy configuration
+  copy:
+    src: tileserver-gl.subfolder.conf
+    dest: "{{ homedir_path }}/swag_config/nginx/proxy-confs/tileserver-gl.subfolder.conf"
+  notify: Restart Swag container
+
+- name: Copy the website files
+  ansible.posix.synchronize:
+    src: www
+    dest: "{{ homedir_path }}/swag_config/"

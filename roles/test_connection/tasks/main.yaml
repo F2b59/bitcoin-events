@@ -1,0 +1,7 @@
+- name: Ansible ping module
+  ansible.builtin.ping:
+
+- name: ip addr debug
+  debug: msg="{{ item }}"
+  with_items:
+    - "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"

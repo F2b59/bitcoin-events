@@ -1,0 +1,51 @@
+- name: Create data directory
+  file:
+    path: "{{ homedir_path }}/tileserver-gl_data"
+    state: directory
+
+- name: Copy styles and fonts
+  ansible.posix.synchronize:
+    src: "{{ item }}"
+    dest: "{{ homedir_path }}/tileserver-gl_data/"
+  loop:
+    - styles
+    - fonts
+  no_log: true  # I don't need 11000 file names in my logs
+
+- name: Copy config.json
+  template:
+    src: config.json
+    dest: "{{ homedir_path }}/tileserver-gl_data/config.json"
+
+- name: Don't forget to download the mbtiles file!
+  debug:
+    msg:
+      - "Tileserver-gl will look for the following file:"
+      - "{{ homedir_path }}/tileserver-gl_data/{{ mbtiles_filename }}"
+      - "Since it weighs about 25GB for just Europe, it is not downloaded automatically."
+      - "So either upload it yourself or get it from https://openmaptiles.org/"
+
+- name: Do you want to continue? (cf. debug message above)
+  pause:
+    prompt: "\nPress Ctrl+C and then 'c' to continue (or wait 60s). Press Ctrl+C and 'a' to abort.\n"
+    seconds: 30
+
+
+- name: Start container
+  community.docker.docker_container:
+    name: tileserver-gl
+    image: maptiler/tileserver-gl
+    pull: yes  # always pull the latest image
+    state: started
+    restart_policy: always
+    volumes:
+      - "{{ homedir_path }}/tileserver-gl_data:/data:rw"
+    networks:
+      - name: nginx-net
+    #published_ports:
+    #  - 8080:8080
+    command:
+      - "--config" 
+      - "config.json"
+    comparisons:
+      '*': strict

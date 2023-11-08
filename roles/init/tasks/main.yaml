@@ -1,0 +1,23 @@
+- name: APT update and upgrade
+  ansible.builtin.apt:
+    cache_valid_time: 3600 #86400
+    upgrade: yes
+
+- name: Setup
+  ansible.builtin.setup:
+
+- name: Install basic tools
+  ansible.builtin.apt:
+    name:
+      - acl  # for Ansible `become_user` with unprivileged user
+      - curl
+      - htop
+      - nano
+      - nmon
+      - rsync  # for ansible.posix.sychronize
+      - vim
+
+#- name: Set low swappiness  # The VM doesn't have any swap by default
+#  ansible.builtin.copy:
+#    src: 20-swappiness.conf
+#    dest: /etc/sysctl.d/20-swappiness.conf

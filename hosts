@@ -1,0 +1,9 @@
+eventmap  ansible_user=ubuntu ansible_host=129.151.255.38
+
+
+[web_servers]
+eventmap
+
+[tile_servers]
+eventmap
+

@@ -1,0 +1,25 @@
+- name: Install Docker
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - python3-docker
+
+- name: Start and enable service
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create Docker user
+  ansible.builtin.user:
+    name: docker
+    password: '!'  # locked/disabled password auth
+    group: docker
+    shell: /bin/bash #/sbin/nologin
+  register: docker_user  # used for UID and GID
+
+- name: Set up Docker networks
+  community.docker.docker_network:
+    name: nginx-net
+    driver: bridge
+    scope: local

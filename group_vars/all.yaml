@@ -1,0 +1,13 @@
+homedir_path: /home/docker
+
+mbtiles_filename: maptiler-osm-2020-02-10-v3.11-europe.mbtiles
+
+
+# linuxserver/swag (reverse proxy + certbot) settings
+# see linuxserver's docs for more information
+
+timezone: Europe/Paris
+
+domain_name: duckdns.org
+subdomains: bitevents  # comma-separated list
+only_subdomains: "true"  # true = validate only sub.domain.tld but not domain.tld
