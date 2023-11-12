@@ -1,4 +1,4 @@
-eventmap  ansible_user=ubuntu ansible_host=129.151.255.38
+eventmap  ansible_user=ubuntu ansible_host=129.151.243.204
 
 
 [web_servers]
