@@ -68,7 +68,8 @@ switch (strtolower($_SERVER['HTTP_X_GITHUB_EVENT'])) {
         break;
     case 'push':
         echo 'Running script update_data.py';
-        shell_exec("python3 ../../update_data.py");
+        $result = shell_exec("python3 ../../update_data.py");
+        echo $result;
         break;
     default:
         header('HTTP/1.0 404 Not Found');
