@@ -17,18 +17,11 @@
       - tileserver-gl
     tags: tgl
 
-  - name: Reverse proxy & Web server
+  - name: Reverse proxy,  Web server, JSON data
     hosts: web_servers
     become: yes
     become_user: docker
     roles:
       - swag
-    tags: www
-
-  - name: JSON data
-    hosts: web_servers
-    become: yes
-    become_user: docker
-    roles:
       - data
-    tags: ['www', 'json']
+    tags: www
