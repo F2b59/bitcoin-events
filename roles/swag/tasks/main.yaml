@@ -29,7 +29,13 @@
 
 - name: Wait for the container to start
   pause:
-    seconds: 5
+    seconds: 15
+
+- name: Copy site-conf
+  template:
+    src: default.conf
+    dest: "{{ homedir_path }}/swag_config/nginx/site-confs/default.conf"
+  notify: Restart Swag container
 
 - name: Copy tileserver-gl reverse proxy configuration
   copy:

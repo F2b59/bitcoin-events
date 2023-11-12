@@ -1,0 +1,12 @@
+[
+    {
+        "name": "BTC Prague",
+        "url": "https://www.btcprague.com/",
+        "description": "The biggest, most influential bitcoin event in Europe ever!",
+        "organizer": "",
+        "address": "Prague, Czech Republic",
+        "dates": ["2024-06-14", "2024-06-16"],
+        "lat": 50.129480,
+        "lng": 14.515710
+    }
+]

@@ -1,4 +1,4 @@
-# BitcoinEvents.com
+# Bitcoin-Events.com
 
 A map and list of Bitcoin-related notable events and conferences.
 

@@ -1,5 +1,5 @@
 // Consts and Helper function definitions
-let url = "/data.json";
+let url = "/all_data.json";
 let initView = {
     "lat": 49.436,
     "lng": 11.050,
