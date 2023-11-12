@@ -1,0 +1,24 @@
+- name: Copy Python script for pulling and aggregating data
+  copy:
+    src: update_data.py
+    dest: "{{ homedir_path }}/update_data.py"
+
+- name: Run the script (to get the data)
+  script:  update_data.py
+  args:
+    chdir: "{{ homedir_path }}"
+    creates: "{{ homedir_path }}/swag_config/www/all_data.json"
+    executable: /usr/bin/python3
+
+- name: Start and enable cron
+  ansible.builtin.service:
+    name: cron
+    state: started
+    enabled: yes
+
+- name: Add cron job at reboot
+  become_user: root
+  template:
+    src: cron-update-web-data.j2
+    dest: /etc/cron.d/update-web-data
+

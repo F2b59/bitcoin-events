@@ -24,3 +24,11 @@
     roles:
       - swag
     tags: www
+
+  - name: JSON data
+    hosts: web_servers
+    become: yes
+    become_user: docker
+    roles:
+      - data
+    tags: ['www', 'json']
