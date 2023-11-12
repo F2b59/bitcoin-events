@@ -68,19 +68,10 @@ switch (strtolower($_SERVER['HTTP_X_GITHUB_EVENT'])) {
         break;
     case 'push':
         echo 'Running script update_data.py';
-        $output = shell_exec("python3 /config/update_data.py 2>&1");
-        echo "Debug: end of execution.";
-        echo $output;
-        if ($output == NULL) {
-            echo "Output is NULL: there was an error.";
-        }
-        if ($output == false) {
-            echo "Output is false.";
-        }
-        break;
+        shell_exec("python3 /config/update_data.py 2>&1");
     default:
         header('HTTP/1.0 404 Not Found');
-        echo "Event:$_SERVER[HTTP_X_GITHUB_EVENT] Payload:\n";
-        print_r($payload); # For debug only. Can be found in GitHub hook log.
+        /*echo "Event:$_SERVER[HTTP_X_GITHUB_EVENT] Payload:\n";
+        print_r($payload);*/ # For debug only. Can be found in GitHub hook log.
         die();
 }
