@@ -68,8 +68,15 @@ switch (strtolower($_SERVER['HTTP_X_GITHUB_EVENT'])) {
         break;
     case 'push':
         echo 'Running script update_data.py';
-        $result = shell_exec("python3 /home/docker/update_data.py");
-        echo $result;
+        $output = shell_exec("python3 /config/update_data.py 2>&1");
+        echo "Debug: end of execution.";
+        echo $output;
+        if ($output == NULL) {
+            echo "Output is NULL: there was an error.";
+        }
+        if ($output == false) {
+            echo "Output is false.";
+        }
         break;
     default:
         header('HTTP/1.0 404 Not Found');

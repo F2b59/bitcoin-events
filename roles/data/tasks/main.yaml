@@ -1,12 +1,12 @@
 - name: Copy Python script for pulling and aggregating data
   copy:
     src: update_data.py
-    dest: "{{ homedir_path }}/update_data.py"
+    dest: "{{ homedir_path }}/swag_config/update_data.py"
 
 - name: Run the script (to get the data)
-  script:  update_data.py
+  script: update_data.py
   args:
-    chdir: "{{ homedir_path }}"
+    chdir: "{{ homedir_path }}/swag_config/www"  # because that's where the script is executed from when using the webhook
     creates: "{{ homedir_path }}/swag_config/www/all_data.json"
     executable: /usr/bin/python3
 

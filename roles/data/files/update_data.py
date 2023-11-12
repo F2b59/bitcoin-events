@@ -4,7 +4,8 @@ import os
 
 BRANCH = "test-json-automation"
 
-HOME_PATH = os.getcwd()
+os.chdir("..")
+ROOT_PATH = os.getcwd()
 print("[debug] PWD = " + os.getcwd())  # debug
 
 
@@ -49,6 +50,6 @@ with open("all_data.json", 'w') as file_out:
 # Copy the resulting data to the web server directory
 
 print("[debug] Copying file to the web server directory")  # debug
-if (os.path.exists(HOME_PATH + "/swag_config/www/all_data.json")):
-    os.remove(HOME_PATH + "/swag_config/www/all_data.json")
-os.system(f'cp {HOME_PATH}/bitcoin-events/json_data/all_data.json {HOME_PATH}/swag_config/www/all_data.json')
+if (os.path.exists(ROOT_PATH + "/www/all_data.json")):
+    os.remove(ROOT_PATH + "/www/all_data.json")
+os.system(f'cp {ROOT_PATH}/bitcoin-events/json_data/all_data.json {ROOT_PATH}/www/all_data.json')
