@@ -2,7 +2,7 @@ import json
 import os
 
 
-BRANCH = "test-json-automation"
+BRANCH = "main"
 
 os.chdir("..")
 ROOT_PATH = os.getcwd()
