@@ -69,6 +69,7 @@ switch (strtolower($_SERVER['HTTP_X_GITHUB_EVENT'])) {
     case 'push':
         echo 'Running script update_data.py';
         shell_exec("python3 /config/update_data.py 2>&1");
+        break;
     default:
         header('HTTP/1.0 404 Not Found');
         /*echo "Event:$_SERVER[HTTP_X_GITHUB_EVENT] Payload:\n";
