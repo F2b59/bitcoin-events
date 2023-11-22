@@ -1,1 +1,1 @@
-@reboot  docker  python3 {{ homedir_path }}/swag_config/update_data.py
+@reboot  docker  "cd {{ homedir_path }}/swag_config/www && python3 ../update_data.py >> ../update_data.log 2>&1"
