@@ -9,7 +9,7 @@ mbtiles_filename: maptiler-osm-2020-02-10-v3.11-europe.mbtiles
 timezone: Europe/Paris
 
 domain_name: duckdns.org
-subdomains: bitevents  # comma-separated list
+subdomains: bitevents2  # comma-separated list
 only_subdomains: "true"  # true = validate only sub.domain.tld but not domain.tld
 
 

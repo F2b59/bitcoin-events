@@ -1,0 +1,188 @@
+/*** DECLARATIONS ***/
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(fonts/Ubuntu/Ubuntu-Light.woff2);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(fonts/Ubuntu/Ubuntu-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(/fonts/Ubuntu/Ubuntu-Italic.woff2);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(/fonts/Ubuntu/Ubuntu-Medium.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(/fonts/Ubuntu/Ubuntu-Bold.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(fonts/Ubuntu/Ubuntu-BoldItalic.woff2);
+    font-weight: 700;
+    font-style: italic;
+}
+
+:root {
+    --bitcoin-grey: #4d4d4d;
+    --bitcoin-orange: #f7931a;
+    --text-color: #444;
+}
+
+
+/*** STYLES ***/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0.5em auto;
+    font:17px/1.5 "Ubuntu";
+    color: var(--text-color)
+}
+
+
+/* HEADER */
+
+header {
+    /*font-family: "Ubuntu";*/
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-style: italic;
+    font-size: xxx-large;
+    color: var(--bitcoin-grey);
+    margin: 0.5em auto 0em;
+}
+
+h1 img {
+    height: 0.8em;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: x-large;
+    margin: 0 auto 1.3em;
+    color: var(--bitcoin-orange);
+}
+
+
+/* MAIN - Map-section */
+
+main {
+    height: 80%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map-section, #map {
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    border-radius: 20px;
+}
+
+/* Begin Leaflet override */
+
+/* attribution and scale controls */
+.leaflet-touch .leaflet-bar {
+	border: 1px solid rgba(0,0,0,0.3); /*color and thickness of the border*/
+	background-clip: padding-box;
+}
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65); /*?*/
+	border-radius: 7px; /*radius off the border*/
+}
+.leaflet-touch .leaflet-bar a { /*size*/
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+}
+.leaflet-touch .leaflet-bar a:first-child { /*radiuses of every corner*/
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+/* End Leaflet override */
+
+.leaflet-popup-content {
+    padding: 0.1em 1em;
+}
+
+.leaflet-popup-content p {
+    margin: 0.7em auto;
+}
+
+.map-event-name a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: large;
+    font-weight: 700;
+}
+
+.map-event-name a:hover {
+    text-decoration: underline var(--bitcoin-orange);
+}
+
+.map-event-desc {
+    font-style: italic;
+}
+
+
+/* MAIN - Timeline section */
+
+h3 {
+    font-weight: 500;
+    font-size: x-large;
+    margin: 2em auto 1em;
+}
+
+.timeline-event {
+    padding: 0 1em 2em;
+}
+
+.timeline-event h4, .timeline-event p {
+    margin: 0.6em auto;
+}
+
+h4 a { /* event name */
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: larger;
+    font-weight: 700;
+}
+
+h4 a:hover {
+    text-decoration: underline var(--bitcoin-orange);
+}
+
+.tl-event-desc {
+    font-style: italic;
+}
