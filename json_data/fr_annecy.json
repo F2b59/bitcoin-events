@@ -1,0 +1,12 @@
+[
+    {
+      "name": "B-Only",
+      "url": "https://b-only.org/",
+      "description": "La conférence Bitcoin au coeur des Alpes",
+      "organizer": "AlpineChain.xyz",
+      "address": "MFR Villaret, Thônes, France",
+      "dates": ["2023-11-03", "2023-11-05"],
+      "lat": 45.88536,
+      "lng": 6.32573,
+    }
+]

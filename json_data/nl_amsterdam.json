@@ -1,0 +1,12 @@
+[
+    {
+      "name": "Bitcoin Amsterdam",
+      "url": "https://b.tc/conference/amsterdam/",
+      "description": "",
+      "organizer": "BTC Inc.",
+      "address": "Westergas, Amsterdam, Netherlands",
+      "dates": ["2024-10-12", "2024-10-13"],
+      "lat": 52.38685,
+      "lng": 4.86897,
+    }
+]
