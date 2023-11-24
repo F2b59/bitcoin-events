@@ -1,0 +1,13 @@
+[
+    {
+      "name": "Bitcoin Economic Forum",
+      "url": "https://bef.breizhbitcoin.com/",
+      "description": "The Great ReSAT",
+      "organizer": "Breizh Bitcoin",
+      "address": "Saint-Denis-d'Orques",
+      "dates": ["2023-05-19", "2023-05-20"],
+      "lat": 48.02892,
+      "lng": -0.27198,
+      "_comment": "GPS coordinates are not accurate."
+    }
+]
